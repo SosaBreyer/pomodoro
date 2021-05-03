@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en" >
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+
+        <title>Pomodoro Timer with Vue</title>
+
+        <!-- Styles -->
+        <link href="./css/bootstrap.min.css" rel="stylesheet">
+        <link href="./css/fontawesome.min.css" rel="stylesheet">
+        <link href="./css/solid.min.css" rel="stylesheet">
+        <link href="./css/style.css" rel="stylesheet">
+    </head>
+    <body>
+        <section id="app" class="container-fluid bg-info text-white font-weight-bold h-100">
+            <div class="row justify-content-center h-100">
+                <div class="col-xl-8 text-center">
+                    <h2 class="title">{{ title }}</h2>
+
+                    <!-- THE TIMER NUMBERS -->
+                    <div id="timer">
+                        <span id="minutes">{{ minutes }}</span><span id="middle">:</span><span id="seconds">{{ seconds }}</span>
+                    </div>
+
+                    <!-- THE BUTTONS -->
+                    <div id="buttons">
+                        <!-- START BUTTON -->
+                        <button 
+                        type="button"
+                        id="start"
+                        class="btn btn-dark btn-lg"
+                        v-if="!timer"
+                        @click="startTimer">
+                            <i class="fas fa-play-circle"></i>
+                        </button>
+
+                        <!-- PAUSE BUTTON -->
+                        <button
+                        type="button"
+                        id="stop" 
+                        class="btn btn-dark btn-lg"
+                        v-if="timer"
+                        @click="stopTimer"> 
+                            <i class="fas fa-pause-circle"></i>
+                        </button>
+
+                        <!-- RESET BUTTON -->
+                        <button
+                        type="button"
+                        id="reset" 
+                        class="btn btn-dark btn-lg"
+                        v-if="resetButton"
+                        @click="resetTimer"> 
+                            <i class="fas fa-undo"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <script src="./js/jquery-3.5.1.min.js"></script>
+        <script src="./js/popper.min.js"></script>
+        <script src="./js/bootstrap.min.js"></script>
+        <script src="./js/vue.min.js"></script>
+        <script src="./js/main.js"></script>
+    </body>
+</html>
